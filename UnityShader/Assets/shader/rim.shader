@@ -9,7 +9,7 @@ Shader "Advance/RimLight"{
 
     }
     SubShader{
-        Tags {"Queue" = "Geometry" "RenderType" = "Opaque" }
+        Tags{"LightMode" = "ForwardBase"}
         Pass{
             CGPROGRAM
 

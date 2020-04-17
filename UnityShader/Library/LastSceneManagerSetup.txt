@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scene/lesson1_diffuse_specular.unity
+- path: Assets/scene/New Folder/blur.unity
   isLoaded: 1
   isActive: 1
