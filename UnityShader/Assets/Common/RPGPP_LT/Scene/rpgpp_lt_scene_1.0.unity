@@ -3876,9 +3876,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeDectionShader: {fileID: 4800000, guid: b79d189fb59894c4c891060ca67c8c1a, type: 3}
-  edgesOnly: 1
+  edgesOnly: 0
   edgeColor: {r: 0, g: 0, b: 0, a: 1}
   backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  DepthThres: 1
+  NormalThres: 1
 --- !u!1001 &552265441
 Prefab:
   m_ObjectHideFlags: 0

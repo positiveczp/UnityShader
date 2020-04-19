@@ -16,6 +16,7 @@
 			#include "UnityCG.cginc"
 
 			sampler2D _MainTex;
+			sampler2D _CameraDepthNormalsTexture;
 			half4 _MainTex_TexelSize;
 			fixed _EdgeOnly;
 			fixed4 _EdgeColor;
@@ -23,7 +24,7 @@
 
 			struct v2f{
 				float4 clippos : SV_POSITION;
-				half2 uv[9] : TEXCOORD0;
+				float2 uv[9] : TEXCOORD0;
 			};
 
 			v2f vert(appdata_base i){
@@ -71,7 +72,16 @@
 				fixed4 finalColor = tex2D(_MainTex, i.uv[4]);
 				finalColor = lerp(finalColor, _BackgroundColor, _EdgeOnly);
 				finalColor = lerp(finalColor, _EdgeColor, edge);
-				return finalColor;
+				// return finalColor;
+
+				float depth;
+				half3 normal;
+				float4 enc = tex2D(_CameraDepthNormalsTexture, i.uv[4]);
+				DecodeDepthNormal(enc, depth, normal);
+				depth = DecodeFloatRG(enc.zw);
+				// return fixed4(normal * 0.5 + 0.5, 1.0);
+				return fixed4(depth, depth, depth, 1.0);
+
 			}
 
 

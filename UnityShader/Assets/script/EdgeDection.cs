@@ -12,9 +12,15 @@ public class EdgeDection : PostEffectBase {
 		}
 	}
 
+	void OnEnable(){
+		GetComponent<Camera>().depthTextureMode |= DepthTextureMode.DepthNormals;
+	}
+
 	void OnRenderImage(RenderTexture src, RenderTexture dest){
 		if(material != null){
 			material.SetFloat("_EdgeOnly", edgesOnly);
+			material.SetFloat("_DepthThres", DepthThres);
+			material.SetFloat("_NormalThres", NormalThres);
 			material.SetColor("_EdgeColor", edgeColor);
 			material.SetColor("_BackgroundColor", backgroundColor);
 			Graphics.Blit(src, dest, material);
@@ -27,5 +33,7 @@ public class EdgeDection : PostEffectBase {
 	public float edgesOnly = 0.0f;
 	public Color edgeColor = Color.black;
 	public Color backgroundColor = Color.white;
+	public float DepthThres = 1.0f;
+	public float NormalThres = 1.0f;
 
 }

@@ -23,7 +23,7 @@
 			
 			struct v2f{
 				float4 clippos : SV_POSITION;
-				half2 uv : TEXCOORD0;
+				float2 uv : TEXCOORD0;
 			};
 
 			v2f vert(appdata_base i){
