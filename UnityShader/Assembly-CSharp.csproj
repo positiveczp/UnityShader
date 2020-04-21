@@ -51,8 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Common\LensFlare\Shaders\Scripts\DirtyLensFlare.cs" />
+     <Compile Include="Assets\script\BoxBlur.cs" />
      <Compile Include="Assets\script\BriAndSatAndCon.cs" />
      <Compile Include="Assets\script\EdgeDection.cs" />
+     <Compile Include="Assets\script\GaussianBlur.cs" />
      <Compile Include="Assets\script\PosteEfectBase.cs" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\FinalPass.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Waveform.compute" />
@@ -80,6 +83,7 @@
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\LightMeter.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\D3D12.hlsl" />
+     <None Include="Assets\Common\LensFlare\Shaders\_Source\Shaders\Resources\Blur.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\OpenGL.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
@@ -107,17 +111,20 @@
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\AutoExposure.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Overlays.shader" />
+     <None Include="Assets\Common\LensFlare\Shaders\_Source\Shaders\Resources\DirtyLensFlare.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\Metal.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Vectorscope.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasingBridge.hlsl" />
+     <None Include="Assets\shader\PostProcess\BoxBlur.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Copy.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\D3D11.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Waveform.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\XboxOne.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Sampling.hlsl" />
+     <None Include="Assets\shader\PostProcess\GaussianBlur.shader" />
      <None Include="Assets\shader\PostProcess\EdgeDection.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\PSP2.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Histogram.compute" />

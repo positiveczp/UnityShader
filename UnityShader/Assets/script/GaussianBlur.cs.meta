@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dcadb7e005ed5c844a370d1d5d02bd1e
+timeCreated: 1587455254
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GaussianBlurShader: {fileID: 4800000, guid: e4d54d5fdbb49324bac3a31f71baaae9,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
