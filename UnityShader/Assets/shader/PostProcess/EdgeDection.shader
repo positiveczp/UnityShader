@@ -74,8 +74,7 @@
 				DecodeDepthNormal(tex2D(_CameraDepthNormalsTexture, i.uv[4]), depth, normal);
 				depth = tex2D(_CameraDepthTexture, i.uv[4]).r;
 				depth = Linear01Depth(depth);
-				// fixed4 finalColor = fixed4(depth, depth, depth, 1.0);
-				finalColor = fixed4(1,1,1,1);
+				fixed4 finalColor = fixed4(depth, depth, depth, 1.0);
 				return finalColor;
 
 			}
