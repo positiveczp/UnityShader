@@ -57,6 +57,7 @@
      <Compile Include="Assets\script\EdgeDection.cs" />
      <Compile Include="Assets\script\GaussianBlur.cs" />
      <Compile Include="Assets\script\PosteEfectBase.cs" />
+     <Compile Include="Assets\script\RadialBlur.cs" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\FinalPass.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Waveform.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Uber.shader" />
@@ -99,6 +100,7 @@
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Fog.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\MultiScaleVORender.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\ScalableAO.shader" />
+     <None Include="Assets\shader\PostProcess\RadialBlur.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />

@@ -3696,8 +3696,10 @@ GameObject:
   - component: {fileID: 522811757}
   - component: {fileID: 522811758}
   - component: {fileID: 522811759}
+  - component: {fileID: 522811762}
   - component: {fileID: 522811761}
   - component: {fileID: 522811760}
+  - component: {fileID: 522811763}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3755,7 +3757,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
+  m_HDR: 0
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 1
@@ -3894,7 +3896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f524cac4f2747b4fb11c694dd9b39b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lensFlareType: 2
+  lensFlareType: 0
   saturation: -1.42
   threshold: 0.139
   flareIntensity: 0.31
@@ -3918,7 +3920,39 @@ MonoBehaviour:
   GaussianBlurShader: {fileID: 4800000, guid: e4d54d5fdbb49324bac3a31f71baaae9, type: 3}
   iter: 0
   downSample: 2
-  blurRadius: 0.77
+  blurRadius: 1
+--- !u!114 &522811762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 522811750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b042d76735709f446ade14bec34d6230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoxBlurShader: {fileID: 4800000, guid: 202363cc5c821504798b22bc89415d74, type: 3}
+  Iter: 1
+  downSample: 1
+  blurRadius: 1.6
+--- !u!114 &522811763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 522811750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b3510d0b096784aa0f67ba954ab0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RadialBlurShader: {fileID: 4800000, guid: 03b69549371747348b7501bcf8dabf67, type: 3}
+  iter: 10
+  BlurRadius: 0.212
+  ClearRadius: 0.029
+  CenterX: 0.5
+  CenterY: 0.5
 --- !u!1001 &552265441
 Prefab:
   m_ObjectHideFlags: 0

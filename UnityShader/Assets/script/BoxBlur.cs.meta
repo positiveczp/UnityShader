@@ -5,7 +5,8 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - BoxBlurShader: {fileID: 4800000, guid: 202363cc5c821504798b22bc89415d74, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
