@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b042d76735709f446ade14bec34d6230
+timeCreated: 1587436648
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BoxBlurShader: {fileID: 4800000, guid: 202363cc5c821504798b22bc89415d74, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

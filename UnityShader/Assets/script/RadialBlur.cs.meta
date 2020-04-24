@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 69b3510d0b096784aa0f67ba954ab0b6
+timeCreated: 1587613104
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - RadialBlurShader: {fileID: 4800000, guid: 03b69549371747348b7501bcf8dabf67, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
