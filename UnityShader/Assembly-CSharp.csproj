@@ -58,6 +58,7 @@
      <Compile Include="Assets\script\GaussianBlur.cs" />
      <Compile Include="Assets\script\PosteEfectBase.cs" />
      <Compile Include="Assets\script\RadialBlur.cs" />
+     <Compile Include="Assets\script\SpinBlur.cs" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\FinalPass.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Waveform.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Uber.shader" />
@@ -80,6 +81,7 @@
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Colors.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\Vulkan.hlsl" />
+     <None Include="Assets\shader\PostProcess\SpinBlur.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\GrainBaker.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\LightMeter.shader" />

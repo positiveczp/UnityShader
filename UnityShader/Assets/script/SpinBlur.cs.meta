@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9b6695a0b7be23249b31da1d338aa59b
+timeCreated: 1587632163
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - SpinBlurShader: {fileID: 4800000, guid: 9acc45a57cdf7df418d03eac5ccec97e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

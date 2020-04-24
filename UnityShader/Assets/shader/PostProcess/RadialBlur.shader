@@ -33,9 +33,15 @@
 
 		fixed4 frag(v2f i) : SV_TARGET{
 			fixed4 finalColor;
+			i.uv *= half2(_ScreenParams.x/_ScreenParams.y, 1.0);
+			_CenterX *= _ScreenParams.x/_ScreenParams.y;
 			half2 dist = half2(_CenterX, _CenterY) - i.uv;
 			half2 dir = dist * _BlurRadius;
+			//需要对x轴进行归一化处理，否则是椭圆不是圆形
+			//处理的是距离length而不是方向dir
+			// dist.x *= _ScreenParams.x/_ScreenParams.y;
 			fixed sep = step(_ClearRadius, length(dist));
+			i.uv *= half2(_ScreenParams.y/_ScreenParams.x, 1.0);
 			for(int idx = 0; idx < _Iter; ++idx){
 				fixed4 col = lerp(tex2D(_MainTex, i.uv), tex2D(_MainTex, i.uv + dir * half(idx) / _Iter), sep);
 				finalColor += col;
