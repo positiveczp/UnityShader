@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scene/postprocess/image_postprocess.unity
+- path: Assets/scene/postprocess/blur.unity
   isLoaded: 1
   isActive: 1

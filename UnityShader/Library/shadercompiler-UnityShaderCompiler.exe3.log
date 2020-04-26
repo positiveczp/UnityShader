@@ -5,8 +5,6 @@ Cmd: compileComputeKernel
 Cmd: compileComputeKernel
   api=4 insize=5032 outsize=4141 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=18729 outsize=8681 ok=1
+  api=4 insize=18729 outsize=8693 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=18729 outsize=8925 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=18729 outsize=10769 ok=1
+  api=4 insize=18729 outsize=10377 ok=1
