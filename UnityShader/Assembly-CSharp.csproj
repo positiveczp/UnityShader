@@ -44,10 +44,14 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
+<<<<<<< HEAD
       <HintPath>D:\Unity3d\Editor\Data\Managed\UnityEngine.dll</HintPath>
+=======
+      <HintPath>D:/Unity/Editor/Data/Managed\UnityEngine.dll</HintPath>
+>>>>>>> 5efc4c1e5baf3b6c92f2ab8e255fc10c457d36f9
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/Unity3d/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +63,7 @@
      <Compile Include="Assets\script\PosteEfectBase.cs" />
      <Compile Include="Assets\script\RadialBlur.cs" />
      <Compile Include="Assets\script\SpinBlur.cs" />
+     <Compile Include="Assets\script\SSAO.cs" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\FinalPass.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Waveform.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Uber.shader" />
@@ -108,6 +113,7 @@
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
+     <None Include="Assets\shader\PostProcess\SSAO.shader" />
      <None Include="Assets\shader\xray_1st.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\CopyStdFromTexArray.shader" />
      <None Include="Assets\shader\diffuse.shader" />
@@ -135,31 +141,31 @@
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Histogram.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Timeline">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UIAutomation">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.GoogleAudioSpatializer">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
