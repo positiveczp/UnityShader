@@ -16,6 +16,7 @@
 		half _FadeBegin;
 		half _FadeEnd;
 		half _Constrast;
+		half _Threshold;
 		int _SamplesCount;
 		fixed4 _Samples[MAX_COUNT];
 
@@ -36,6 +37,7 @@
 		}
 
 		float fade(float distz){
+			// if(distz < _Threshold) return 0.0f;
 			return saturate((_FadeEnd - distz) / (_FadeEnd - _FadeBegin));
 		}
 
@@ -46,20 +48,24 @@
 			//normal 视角空间下[-1, 1]
 			//depth 视角空间下[0, 1]线性深度
 			DecodeDepthNormal(enc, viewlineardepth, viewnormal);
-			float3 viewpos = i.viewposInFar * viewlineardepth;
+			// viewlineardepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, 0.5*i.uv + 0.5);
+			// viewlineardepth = LinearEyeDepth(viewlineardepth);
+			float3 viewpos = i.viewposInFar * (viewlineardepth/i.viewposInFar.z);//p
 			float occlusion = 0.0f;
 			for(int idx = 0; idx < _SamplesCount; ++idx){
 				float3 randomdir = _Samples[idx].xyz;
 				randomdir = dot(randomdir, viewnormal) < 0 ? -randomdir : randomdir;
-				float3 sampleviewpos = viewpos + randomdir * _SampleRadius;
+				float3 sampleviewpos = viewpos + randomdir * _SampleRadius;//q
+				// float4 sampleclippos = mul(unity_CameraProjection, float4(sampleviewpos, 1.0));
 				float4 sampleclippos = mul(UNITY_MATRIX_P, float4(sampleviewpos, 1.0f));
 				float3 samplendcpos = sampleclippos.xyz / sampleclippos.w;
-				float sampledepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, 0.5*samplendcpos.xy + 0.5);
+				float sampledepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, 0.5*samplendcpos.xy + 0.5).r;
 				sampledepth = Linear01Depth(sampledepth);
-				sampleviewpos = sampleviewpos * (sampledepth / sampleviewpos.z);
+				// sampleviewpos = sampleviewpos * (sampledepth / sampleviewpos.z);//r
 				float3 dirtosam = normalize(sampleviewpos - viewpos);
-				float distz = viewpos.z - sampleviewpos.z;
-				float ao = max(0.0f, dot(dirtosam, viewnormal)) * fade(distz);
+				float distz = abs(sampledepth - sampleviewpos.z);
+				// float ao = max(0.0f, dot(dirtosam, normalize(viewnormal))) * fade(distz);
+				float ao = sampledepth+_Threshold>sampleviewpos.z?1.0:0.0;
 				occlusion += ao;
 			}
 			occlusion /= _SamplesCount;

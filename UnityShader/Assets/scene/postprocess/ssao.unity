@@ -3966,11 +3966,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SSAOShader: {fileID: 4800000, guid: 1ed4c09a5fd4e224aa05178e091ffde2, type: 3}
-  SampleRadius: 0.0347
-  SamplesCount: 14
-  FadeBegin: 0.039
-  FadeEnd: 0.484
-  Constrast: 2
+  SampleRadius: 0.464
+  SamplesCount: 21
+  FadeBegin: 0.054
+  FadeEnd: 8.4
+  Constrast: 2.76
+  Threshold: 0.001
 --- !u!1001 &552265441
 Prefab:
   m_ObjectHideFlags: 0
