@@ -13,11 +13,13 @@
 		sampler2D _CameraDepthTexture;
 		float4x4 _InverseProjectionMatrix;
 		half _SampleRadius;
+		half _Bias;
 		half _FadeBegin;
 		half _FadeEnd;
 		half _Constrast;
 		int _SamplesCount;
 		fixed4 _Samples[MAX_COUNT];
+		float4x4 _CameraModelView;
 
 		struct v2f{
 			float4 clippos : SV_POSITION;
@@ -56,12 +58,14 @@
 				float3 samplendcpos = sampleclippos.xyz / sampleclippos.w;
 				float sampledepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, 0.5*samplendcpos.xy + 0.5);
 				sampledepth = Linear01Depth(sampledepth);
-				sampleviewpos = sampleviewpos * (sampledepth / sampleviewpos.z);
+				// sampleviewpos = sampleviewpos * (sampledepth / sampleviewpos.z);
 				float3 dirtosam = normalize(sampleviewpos - viewpos);
 				float distz = viewpos.z - sampleviewpos.z;
-				float ao = max(0.0f, dot(dirtosam, viewnormal)) * fade(distz);
+				float ao = max(0.0f, dot(dirtosam, viewnormal)-_Bias) * fade(distz);
+				// float ao = sampledepth+_Bias<sampleviewpos.z?1.0:0.0;
 				occlusion += ao;
 			}
+
 			occlusion /= _SamplesCount;
 			float accessible = 1.0f - occlusion;
 			fixed col = pow(accessible, _Constrast);
