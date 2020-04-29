@@ -1,8 +1,0 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/scene/postprocess/blur.unity
-=======
-- path: Assets/scene/postprocess/ssao.unity
->>>>>>> 5efc4c1e5baf3b6c92f2ab8e255fc10c457d36f9
-  isLoaded: 1
-  isActive: 1

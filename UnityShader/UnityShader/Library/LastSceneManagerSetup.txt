@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/scene/postprocess/ssao.unity
+  isLoaded: 1
+  isActive: 1
