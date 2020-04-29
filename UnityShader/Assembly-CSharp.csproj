@@ -44,14 +44,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-<<<<<<< HEAD
       <HintPath>D:\Unity3d\Editor\Data\Managed\UnityEngine.dll</HintPath>
-=======
-      <HintPath>D:/Unity/Editor/Data/Managed\UnityEngine.dll</HintPath>
->>>>>>> 5efc4c1e5baf3b6c92f2ab8e255fc10c457d36f9
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>D:/Unity3d/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +60,11 @@
      <Compile Include="Assets\script\RadialBlur.cs" />
      <Compile Include="Assets\script\SpinBlur.cs" />
      <Compile Include="Assets\script\SSAO.cs" />
+     <Compile Include="Assets\SSAO Pro\Demo\Scripts\DemoUI.cs" />
+     <Compile Include="Assets\SSAO Pro\Demo\Scripts\RotateAround.cs" />
+     <Compile Include="Assets\SSAO Pro\Scripts\Attributes\ColorUsageAttribute.cs" />
+     <Compile Include="Assets\SSAO Pro\Scripts\Attributes\HelpURLAttribute.cs" />
+     <Compile Include="Assets\SSAO Pro\Scripts\SSAOPro.cs" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\FinalPass.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Waveform.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Uber.shader" />
@@ -72,10 +73,12 @@
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\CopyStd.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\Bloom.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\CopyStdFromDoubleWide.shader" />
+     <None Include="Assets\SSAO Pro\Readme.txt" />
      <None Include="Assets\Common\PostProcessing\Shaders\xRLib.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\Switch.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\PSSL.hlsl" />
+     <None Include="Assets\SSAO Pro\Resources\SSAOPro_v2.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Vectorscope.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
      <None Include="Assets\shader\rim.shader" />
@@ -93,6 +96,8 @@
      <None Include="Assets\Common\PostProcessing\Shaders\API\D3D12.hlsl" />
      <None Include="Assets\Common\LensFlare\Shaders\_Source\Shaders\Resources\Blur.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\OpenGL.hlsl" />
+     <None Include="Assets\SSAO Pro\Changelog.txt" />
+     <None Include="Assets\SSAO Pro\Resources\SSAOPro.cginc" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
@@ -133,6 +138,7 @@
      <None Include="Assets\Common\PostProcessing\Shaders\API\D3D11.hlsl" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Waveform.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\API\XboxOne.hlsl" />
+     <None Include="Assets\SSAO Pro\Resources\HighPrecisionDepthMap.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Sampling.hlsl" />
      <None Include="Assets\shader\PostProcess\GaussianBlur.shader" />
      <None Include="Assets\shader\PostProcess\EdgeDection.shader" />
@@ -140,32 +146,11 @@
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Histogram.compute" />
      <None Include="Assets\Common\PostProcessing\Shaders\Debug\Histogram.shader" />
      <None Include="Assets\Common\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
- <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Timeline">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UIAutomation">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.GoogleAudioSpatializer">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ <HintPath>D:/Unity3d/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>

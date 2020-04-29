@@ -3968,12 +3968,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SSAOShader: {fileID: 4800000, guid: 1ed4c09a5fd4e224aa05178e091ffde2, type: 3}
-  SampleRadius: 5.5
-  SamplesCount: 24
-  FadeBegin: 0.039
-  FadeEnd: 0.446
-  Constrast: 2.05
-  Bias: 0.23
+  SampleRadius: 0.005
+  SamplesCount: 32
+  FadeBegin: 0.042
+  FadeEnd: 0.451
+  Constrast: 2.22
+  Bias: 0.0128
 --- !u!114 &522811765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3989,19 +3989,19 @@ MonoBehaviour:
   UseHighPrecisionDepthMap: 0
   Samples: 2
   Downsampling: 1
-  Radius: 0.125
-  Intensity: 2
-  Distance: 1
-  Bias: 0.1
+  Radius: 0.018
+  Intensity: 1.9
+  Distance: 0.57
+  Bias: 0.204
   LumContribution: 0.5
   OcclusionColor: {r: 0, g: 0, b: 0, a: 1}
-  CutoffDistance: 150
-  CutoffFalloff: 50
+  CutoffDistance: 1000
+  CutoffFalloff: 100
   Blur: 0
   BlurDownsampling: 0
   BlurPasses: 1
   BlurBilateralThreshold: 0.1
-  DebugAO: 0
+  DebugAO: 1
 --- !u!114 &522811767
 MonoBehaviour:
   m_ObjectHideFlags: 0

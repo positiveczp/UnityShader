@@ -74,6 +74,7 @@
 		half3 diff = getWSPosition(t, depth) - p; // World space
 		half3 v = normalize(diff);
 		half d = length(diff) * _Params1.w;
+		// return max(0.0, dot(cnorm, v));
 		return max(0.0, dot(cnorm, v) - _Params2.x) * (1.0 / (1.0 + d)) * _Params1.z;
 	}
 
@@ -103,7 +104,8 @@
 			#if defined(SAMPLE_NOISE)
 			coord1 = reflect(CROSS[j], random) * radius;
 			#else
-			coord1 = CROSS[j] * radius;
+			coord1 = CROSS[j] * 100;
+			// coord1 = CROSS[j] * radius;
 			#endif
 
 			#if !SAMPLES_VERY_LOW
@@ -147,7 +149,8 @@
 		#endif
 
 		// Distance cutoff
-		ao = lerp(1.0 - ao, 1.0, saturate(invlerp(_Params2.z - _Params2.w, _Params2.z, eyeDepth)));
+		ao = 1 - ao;
+		// ao = lerp(1.0 - ao, 1.0, saturate(invlerp(_Params2.z - _Params2.w, _Params2.z, eyeDepth)));
 
 		return ao;
 	}

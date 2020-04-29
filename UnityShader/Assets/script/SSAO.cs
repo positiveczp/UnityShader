@@ -14,11 +14,12 @@ public class SSAO : PostEffectBase {
 
 	private void OnEnable(){
 		GetComponent<Camera>().depthTextureMode |= DepthTextureMode.DepthNormals;
+		cam = GetComponent<Camera>();
 	}
 
 	private List<Vector4> Samples = new List<Vector4>();
-	[Range(0.001f, 20f)]
-	public float SampleRadius = 0.01f;
+	[Range(0.001f, 0.005f)]
+	public float SampleRadius = 0.001f;
 	[Range(4, 32)]
 	public int SamplesCount = 5;
 	[Range(0.0f, 0.2f)]
@@ -27,14 +28,17 @@ public class SSAO : PostEffectBase {
 	public float FadeEnd = 0.5f;
 	[Range(2.0f, 6.0f)]
 	public float Constrast = 4.0f;
-	[Range(0.01f, 5f)]
+	[Range(0.01f, 0.1f)]
 	public float Bias = 0.2f;
 
+	private Camera cam;
 
 	void OnRenderImage(RenderTexture src, RenderTexture dest){
 		if(material!=null){
 			GenSamples();
-			material.SetMatrix("_CameraModelView", GetComponent<Camera>().cameraToWorldMatrix);
+			material.SetMatrix("_CameraModelView", cam.cameraToWorldMatrix);
+			material.SetMatrix("_CameraProjection", cam.projectionMatrix);
+			material.SetMatrix("_InverseViewProject", (cam.projectionMatrix * cam.worldToCameraMatrix).inverse);
 			material.SetFloat("_Bias", Bias);
 			material.SetFloat("_SampleRadius", SampleRadius);
 			material.SetFloat("_FadeBegin", FadeBegin);
