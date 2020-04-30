@@ -2487,6 +2487,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1685426733795514, guid: f31c6bb6e68212e41b0bcae74612a240, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f31c6bb6e68212e41b0bcae74612a240, type: 2}
   m_IsPrefabParent: 0
@@ -3968,12 +3972,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SSAOShader: {fileID: 4800000, guid: 1ed4c09a5fd4e224aa05178e091ffde2, type: 3}
-  SampleRadius: 0.005
-  SamplesCount: 32
-  FadeBegin: 0.042
-  FadeEnd: 0.451
-  Constrast: 2.22
-  Bias: 0.0128
+  SampleRadius: 0.001
+  SamplesCount: 6
+  FadeBegin: 0
+  FadeEnd: 0.5
+  Constrast: 2.83
+  Bias: 0.2
+  NoiseTexture: {fileID: 2800000, guid: 45ca7cd7d934d6245bb4539f780e4892, type: 3}
+  Downsampling: 1
+  Radius: 0.178
+  Intensity: 1.51
+  Distance: 1.12
+  LumContribution: 0.068
+  OcclusionColor: {r: 0, g: 0, b: 0, a: 1}
+  CutoffDistance: 1150
+  CutoffFalloff: 100
 --- !u!114 &522811765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3987,13 +4000,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoiseTexture: {fileID: 2800000, guid: 45ca7cd7d934d6245bb4539f780e4892, type: 3}
   UseHighPrecisionDepthMap: 0
-  Samples: 2
+  Samples: 3
   Downsampling: 1
-  Radius: 0.018
-  Intensity: 1.9
-  Distance: 0.57
-  Bias: 0.204
-  LumContribution: 0.5
+  Radius: 0.154
+  Intensity: 2.06
+  Distance: 1.16
+  Bias: 0.227
+  LumContribution: 0
   OcclusionColor: {r: 0, g: 0, b: 0, a: 1}
   CutoffDistance: 1000
   CutoffFalloff: 100

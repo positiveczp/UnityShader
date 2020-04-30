@@ -256,7 +256,7 @@ public class SSAOPro : MonoBehaviour
 		{
 			RenderTexture rt = RenderTexture.GetTemporary(source.width / Downsampling, source.height / Downsampling, 0, RenderTextureFormat.ARGB32);
 			Graphics.Blit(rt, rt, Material, 0); // Clear
-
+			
 			if (DebugAO)
 			{
 				Graphics.Blit(source, rt, Material, ssaoPass);

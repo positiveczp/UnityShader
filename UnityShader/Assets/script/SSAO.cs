@@ -13,8 +13,9 @@ public class SSAO : PostEffectBase {
 	}
 
 	private void OnEnable(){
-		GetComponent<Camera>().depthTextureMode |= DepthTextureMode.DepthNormals;
 		cam = GetComponent<Camera>();
+		cam.depthTextureMode |= DepthTextureMode.DepthNormals;
+		cam.depthTextureMode |= DepthTextureMode.Depth;
 	}
 
 	private List<Vector4> Samples = new List<Vector4>();
@@ -30,6 +31,28 @@ public class SSAO : PostEffectBase {
 	public float Constrast = 4.0f;
 	[Range(0.01f, 0.1f)]
 	public float Bias = 0.2f;
+	public Texture2D NoiseTexture;
+
+	[Range(1, 4)]
+	public int Downsampling = 1;
+
+	[Range(0.01f, 1.25f)]
+	public float Radius = 0.125f;
+
+	[Range(0f, 16f)]
+	public float Intensity = 2f;
+
+	[Range(0f, 10f)]
+	public float Distance = 1f;
+
+	[Range(0f, 1f)]
+	public float LumContribution = 0.5f;
+
+	[ColorUsage(false)]
+	public Color OcclusionColor = Color.black;
+
+	public float CutoffDistance = 150f;
+	public float CutoffFalloff = 50f;
 
 	private Camera cam;
 
@@ -39,13 +62,17 @@ public class SSAO : PostEffectBase {
 			material.SetMatrix("_CameraModelView", cam.cameraToWorldMatrix);
 			material.SetMatrix("_CameraProjection", cam.projectionMatrix);
 			material.SetMatrix("_InverseViewProject", (cam.projectionMatrix * cam.worldToCameraMatrix).inverse);
-			material.SetFloat("_Bias", Bias);
-			material.SetFloat("_SampleRadius", SampleRadius);
-			material.SetFloat("_FadeBegin", FadeBegin);
-			material.SetFloat("_FadeEnd", FadeEnd);
-			material.SetFloat("_Constrast", Constrast);
-			material.SetInt("_SamplesCount", SamplesCount);
-			material.SetVectorArray("_Samples", Samples);
+			// material.SetFloat("_Bias", Bias);
+			// material.SetFloat("_SampleRadius", SampleRadius);
+			// material.SetFloat("_FadeBegin", FadeBegin);
+			// material.SetFloat("_FadeEnd", FadeEnd);
+			// material.SetFloat("_Constrast", Constrast);
+			// material.SetInt("_SamplesCount", SamplesCount);
+			// material.SetVectorArray("_Samples", Samples);
+			material.SetTexture("_NoiseTex", NoiseTexture);
+			material.SetVector("_Params1", new Vector4(NoiseTexture == null ? 0f : NoiseTexture.width, Radius, Intensity, Distance));
+			material.SetVector("_Params2", new Vector4(Bias, LumContribution, CutoffDistance, CutoffFalloff));
+			material.SetColor("_OcclusionColor", OcclusionColor);
 			Graphics.Blit(src, dest, material, 0);
 		}else{
 			Graphics.Blit(src, dest);

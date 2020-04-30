@@ -64,7 +64,7 @@
 		half g = 2.0 / dot(nn.xyz, nn.xyz);
 		half3 vsnormal = half3(g * nn.xy, g - 1.0); // View space
 		half3 wsnormal = mul((half3x3)_CameraModelView, vsnormal); // World space
-		return wsnormal;
+		return vsnormal;
 	}
 
 	inline half calcAO(half2 tcoord, half2 uv, half3 p, half3 cnorm)
@@ -104,8 +104,8 @@
 			#if defined(SAMPLE_NOISE)
 			coord1 = reflect(CROSS[j], random) * radius;
 			#else
-			coord1 = CROSS[j] * 100;
-			// coord1 = CROSS[j] * radius;
+			// coord1 = CROSS[j];
+			coord1 = CROSS[j] * radius;
 			#endif
 
 			#if !SAMPLES_VERY_LOW

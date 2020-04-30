@@ -5,12 +5,12 @@
 
 	SubShader{
 		CGINCLUDE
-
 		#include "UnityCG.cginc"
 		#define MAX_COUNT 32
 		sampler2D _MainTex;
 		sampler2D _CameraDepthNormalsTexture;
 		sampler2D _CameraDepthTexture;
+		sampler2D _NoiseTex;
 		half _SampleRadius;
 		half _Bias;
 		half _FadeBegin;
@@ -21,6 +21,8 @@
 		float4x4 _CameraModelView;
 		float4x4 _CameraProjection;
 		float4x4 _InverseViewProject;
+		half4 _Params1; // Noise Size / Sample Radius / Intensity / Distance
+		half4 _Params2; // Bias / Luminosity Contribution / Distance Cutoff / Cutoff Falloff
 
 		struct v2f{
 			float4 clippos : SV_POSITION;
@@ -65,7 +67,7 @@
 			#if HIGH_PRECISION_DEPTHMAP_OFF
 			return tex2D(_CameraDepthTexture, uv).x;
 			#elif HIGH_PRECISION_DEPTHMAP_ON
-			return tex2D(_DepthNormalMapF32, uv).x;
+			// return tex2D(_DepthNormalMapF32, uv).x;
 			#endif
 
 			return 0;
@@ -78,7 +80,8 @@
 			half3 diff = getWSPosition(t, depth) - p; // World space
 			half3 v = normalize(diff);
 			half d = length(diff);
-			return max(0.0, dot(cnorm, v));
+			// return max(0.0, dot(cnorm, v));
+			return max(0.0, dot(cnorm, v) - _Params2.x) * (1.0 / (1.0 + d)) * _Params1.z;
 		}
 
 		fixed4 frag(v2f i) : SV_TARGET{
@@ -88,8 +91,13 @@
 			// //normal 视角空间下[-1, 1]
 			// //depth 视角空间下[0, 1]线性深度
 			// DecodeDepthNormal(enc, viewlineardepth, viewnormal);
+			half depth = getDepth(i.uv);
+			half eyeDepth = LinearEyeDepth(depth);
 			half3 normal = getWSNormal(i.uv);
-			float3 position = getWSPosition(i.uv, tex2D(_CameraDepthTexture, i.uv));
+			float3 position = getWSPosition(i.uv, depth);
+
+			half radius = max(_Params1.y / eyeDepth, 0.005);
+			clip(5000 - eyeDepth); // Skip out of range pixels
 
 			float3 viewpos = position;
 			float occlusion = 0.0f;
@@ -117,16 +125,26 @@
 				// float ao = max(0.0f, dot(dir, viewnormal));
 				// occlusion += ao;
 			}
-
+			#define SAMPLE_NOISE
+			#if defined(SAMPLE_NOISE)
+				half2 random = normalize(tex2D(_NoiseTex, _ScreenParams.xy * i.uv / _Params1.x).rg * 2.0 - 1.0);
+		#endif
 			half2 uv = i.uv;
 			const half2 CROSS[4] = { half2(1.0, 0.0), half2(-1.0, 0.0), half2(0.0, 1.0), half2(0.0, -1.0) };
 			for (int j = 0; j < 4; j++)
 			{
-				half2 coord1;
+			half2 coord1;
+			#if defined(SAMPLE_NOISE)
+			coord1 = reflect(CROSS[j], random) * radius;
+			#else
+			// coord1 = CROSS[j];
+			coord1 = CROSS[j] * radius;
+			#endif
 
-				coord1 = CROSS[j];
-
-				half2 coord2 = coord1 * 0.707;
+			#if !SAMPLES_VERY_LOW
+			half2 coord2 = coord1 * 0.707;
+			coord2 = half2(coord2.x - coord2.y, coord2.x + coord2.y);
+			#endif
 				coord2 = half2(coord2.x - coord2.y, coord2.x + coord2.y);
 				ao += calcAO(uv, coord1 * 0.20, position, normal);
 				ao += calcAO(uv, coord2 * 0.40, position, normal);
