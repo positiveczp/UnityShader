@@ -12,7 +12,6 @@
 		sampler2D _CameraDepthNormalsTexture;
 		sampler2D _CameraDepthTexture;
 		float4x4 _InverseProjectionMatrix;
-		float4x4 _ProjectionMatrix;
 		half _SampleRadius;
 		half _FadeBegin;
 		half _FadeEnd;
@@ -37,7 +36,7 @@
 			return o;
 		}
 
-		float Invlinear(float distz){
+		float fade(float distz){
 			// if(distz < _Threshold) return 0.0f;
 			return saturate((_FadeEnd - distz) / (_FadeEnd - _FadeBegin));
 		}
@@ -51,22 +50,22 @@
 			DecodeDepthNormal(enc, viewlineardepth, viewnormal);
 			// viewlineardepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, 0.5*i.uv + 0.5);
 			// viewlineardepth = LinearEyeDepth(viewlineardepth);
-			float3 viewpos = i.viewposInFar * viewlineardepth;//p
+			float3 viewpos = i.viewposInFar * (viewlineardepth/i.viewposInFar.z);//p
 			float occlusion = 0.0f;
 			for(int idx = 0; idx < _SamplesCount; ++idx){
 				float3 randomdir = _Samples[idx].xyz;
 				randomdir = dot(randomdir, viewnormal) < 0 ? -randomdir : randomdir;
 				float3 sampleviewpos = viewpos + randomdir * _SampleRadius;//q
 				// float4 sampleclippos = mul(unity_CameraProjection, float4(sampleviewpos, 1.0));
-				float4 sampleclippos = mul(_ProjectionMatrix, float4(sampleviewpos, 1.0f));
+				float4 sampleclippos = mul(UNITY_MATRIX_P, float4(sampleviewpos, 1.0f));
 				float3 samplendcpos = sampleclippos.xyz / sampleclippos.w;
-				float sampledepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, 0.5*samplendcpos.xy + 0.5);
-				sampledepth = LinearEyeDepth(sampledepth);
-				float3 pos_r = sampleviewpos * (sampledepth / sampleviewpos.z);//r
-				float3 dirtosam = normalize(pos_r - viewpos);
-				float distz = length(pos_r - viewpos);
-				float ao = max(0.0f, dot(dirtosam, normalize(viewnormal)) - _Threshold) * (1/(1+distz))*_FadeEnd;
-				// float ao = sampledepth+_Threshold>sampleviewpos.z?1.0:0.0;
+				float sampledepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, 0.5*samplendcpos.xy + 0.5).r;
+				sampledepth = Linear01Depth(sampledepth);
+				// sampleviewpos = sampleviewpos * (sampledepth / sampleviewpos.z);//r
+				float3 dirtosam = normalize(sampleviewpos - viewpos);
+				float distz = abs(sampledepth - sampleviewpos.z);
+				// float ao = max(0.0f, dot(dirtosam, normalize(viewnormal))) * fade(distz);
+				float ao = sampledepth+_Threshold>sampleviewpos.z?1.0:0.0;
 				occlusion += ao;
 			}
 			occlusion /= _SamplesCount;
