@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2487,6 +2487,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1685426733795514, guid: f31c6bb6e68212e41b0bcae74612a240, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f31c6bb6e68212e41b0bcae74612a240, type: 2}
   m_IsPrefabParent: 0
@@ -3701,6 +3705,8 @@ GameObject:
   - component: {fileID: 522811760}
   - component: {fileID: 522811763}
   - component: {fileID: 522811764}
+  - component: {fileID: 522811765}
+  - component: {fileID: 522811767}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3745,7 +3751,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 5
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -3792,10 +3798,10 @@ MonoBehaviour:
   volumeTrigger: {fileID: 522811755}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 1
+  antialiasingMode: 0
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -3960,18 +3966,75 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 522811750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9319777802263bd45bbaaa440e3428c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SSAOShader: {fileID: 4800000, guid: 1ed4c09a5fd4e224aa05178e091ffde2, type: 3}
+<<<<<<< HEAD
   SampleRadius: 0.057
   SamplesCount: 16
   FadeBegin: 0.054
   FadeEnd: 5.33
   Constrast: 2.45
   Threshold: 0.0723
+=======
+  SampleRadius: 0.001
+  SamplesCount: 6
+  FadeBegin: 0
+  FadeEnd: 0.5
+  Constrast: 2.83
+  Bias: 0.2
+  NoiseTexture: {fileID: 2800000, guid: 45ca7cd7d934d6245bb4539f780e4892, type: 3}
+  Downsampling: 1
+  Radius: 0.178
+  Intensity: 1.51
+  Distance: 1.12
+  LumContribution: 0.068
+  OcclusionColor: {r: 0, g: 0, b: 0, a: 1}
+  CutoffDistance: 1150
+  CutoffFalloff: 100
+--- !u!114 &522811765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 522811750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a970acddb8696a4792ca6e022840a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseTexture: {fileID: 2800000, guid: 45ca7cd7d934d6245bb4539f780e4892, type: 3}
+  UseHighPrecisionDepthMap: 0
+  Samples: 3
+  Downsampling: 1
+  Radius: 0.154
+  Intensity: 2.06
+  Distance: 1.16
+  Bias: 0.227
+  LumContribution: 0
+  OcclusionColor: {r: 0, g: 0, b: 0, a: 1}
+  CutoffDistance: 1000
+  CutoffFalloff: 100
+  Blur: 0
+  BlurDownsampling: 0
+  BlurPasses: 1
+  BlurBilateralThreshold: 0.1
+  DebugAO: 1
+--- !u!114 &522811767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 522811750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eed66d4d7a82554bafc2484e6752f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> b24cb2116ef72a111e79e35c80f69bef3d335e53
 --- !u!1001 &552265441
 Prefab:
   m_ObjectHideFlags: 0

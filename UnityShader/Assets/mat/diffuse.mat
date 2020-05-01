@@ -20,4 +20,4 @@ Material:
     m_TexEnvs: []
     m_Floats: []
     m_Colors:
-    - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
+    - _Diffuse: {r: 0.6002329, g: 0.08174743, b: 0.9264706, a: 1}
