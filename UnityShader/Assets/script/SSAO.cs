@@ -35,6 +35,8 @@ public class SSAO : PostEffectBase {
 	void OnRenderImage(RenderTexture src, RenderTexture dest){
 		if(material!=null){
 			GenSamples();
+			material.SetMatrix("_InverseProjectionMatrix", GetComponent<Camera>().projectionMatrix.inverse);
+			material.SetMatrix("_ProjectionMatrix", GetComponent<Camera>().projectionMatrix);
 			material.SetFloat("_Threshold", Threshold);
 			material.SetFloat("_SampleRadius", SampleRadius);
 			material.SetFloat("_FadeBegin", FadeBegin);
