@@ -74,7 +74,7 @@
 		half3 diff = getWSPosition(t, depth) - p; // World space
 		half3 v = normalize(diff);
 		half d = length(diff) * _Params1.w;
-		// return max(0.0, dot(cnorm, v));
+		//return max(0.0, dot(cnorm, v));
 		return max(0.0, dot(cnorm, v) - _Params2.x) * (1.0 / (1.0 + d)) * _Params1.z;
 	}
 
@@ -84,7 +84,7 @@
 			
 		half depth = getDepth(uv);
 		half eyeDepth = LinearEyeDepth(depth);
-
+		
 		half3 position = getWSPosition(uv, depth); // World space
 		half3 normal = getWSNormal(uv); // World space
 

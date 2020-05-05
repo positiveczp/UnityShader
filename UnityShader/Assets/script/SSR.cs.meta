@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 054ed94b2f3843d4dbf4bed159db3a98
+timeCreated: 1588390609
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - SSRShader: {fileID: 4800000, guid: d430ae2c97988604cb65b98fd86669b9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

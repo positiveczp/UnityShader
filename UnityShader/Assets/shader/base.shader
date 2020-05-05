@@ -12,11 +12,6 @@
 			#include "UnityCG.cginc"
 
 			fixed4 _Color;
-			struct a2v{
-				float4 vertex : POSITION;
-				float3 normal : NORMAL;
-				float4 texcoord : TEXCOORD0;
-			};
 			struct v2f{
 				float4 clippos : SV_POSITION;
 				fixed3 color : COLOR;
@@ -24,7 +19,7 @@
 			};
 
 			//shader代码测试ComputeScreenPos的用法
-			v2f vert(a2v i){
+			v2f vert(appdata_full i){
 				v2f o;
 				o.clippos = UnityObjectToClipPos(i.vertex);
 				o.color = i.normal * 0.5 + fixed3(0.5, 0.5, 0.5);

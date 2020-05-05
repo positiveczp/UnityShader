@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 76cf23b1f92351047924c55fca28cab7
+timeCreated: 1588475932
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - SSAOShader: {fileID: 4800000, guid: fd4eb885c5689e1468265516e3d3d574, type: 3}
+  - NoiseTexture: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

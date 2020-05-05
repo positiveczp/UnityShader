@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scene/postprocess/ssao.unity
+- path: Assets/scene/postprocess/sse2.unity
   isLoaded: 1
   isActive: 1

@@ -67,7 +67,7 @@
 			#if HIGH_PRECISION_DEPTHMAP_OFF
 			return tex2D(_CameraDepthTexture, uv).x;
 			#elif HIGH_PRECISION_DEPTHMAP_ON
-			// return tex2D(_DepthNormalMapF32, uv).x;
+			return tex2D(_DepthNormalMapF32, uv).x;
 			#endif
 
 			return 0;
@@ -91,7 +91,8 @@
 			// //normal 视角空间下[-1, 1]
 			// //depth 视角空间下[0, 1]线性深度
 			// DecodeDepthNormal(enc, viewlineardepth, viewnormal);
-			half depth = getDepth(i.uv);
+			// half depth = getDepth(i.uv);
+			half depth = tex2D(_CameraDepthTexture, i.uv);
 			half eyeDepth = LinearEyeDepth(depth);
 			half3 normal = getWSNormal(i.uv);
 			float3 position = getWSPosition(i.uv, depth);
